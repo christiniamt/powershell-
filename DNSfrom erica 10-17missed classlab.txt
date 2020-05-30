@@ -1,0 +1,42 @@
+Add-DnsServerPrimaryZone -Name FirstName.com -ZoneFile FirstName.com.dns
+Add-DnsServerPrimaryZone -Name LastName.com -ZoneFile LastName.com.dns -computerName Server01
+
+#For -NotifyServers and -SecondaryServers IP address where primary is located.  "TransferToSecureServers" is an encryption between the DNS servers
+Set-DnsServerPrimaryZone -Name LastName.com -computerName Server01 -Notify NotifyServers -NotifyServers 192.168.1.50 -SecondaryServers 192.168.1.50 -SecureSecondaries TransferToSecureServers
+
+Add-DnsServerSecondaryZone -MasterServers 192.168.1.60 -Name LastName.com -ZoneFile LastName.com.dns
+
+#Adding records (Search Powershell resource record: two types...add type A resource record or specified type
+#When in ISE:  add dns server record Computer01 to 192.168.1.225 in <Firstname>.com (Find these in the requirements from class
+#You are using the add-in section on the right hand side and entering in all the the requriements for each line.  Make sure the scripts are on separate lines.
+#USE type A until you get to e-mail records and then use MX type and you need to set first option Server01.firstname.com, name to smtp, preference to 0 to 65535 so use 10 for this examplek
+#integrated zone to add in objects from AD into DNS:  Computer03...
+#SuperComputer to Computer02...use the CNAME record..hostnamealias is the FQDN of the server that is being pointed to which is computer02.lastname.com; Name: SuperComputer; zonename: lastname.com
+
+pause
+
+
+Remember to add comments and complete the remaining information required.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

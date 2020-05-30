@@ -1,0 +1,28 @@
+
+#Did not work
+Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -IncludeManagementTools -ComputerName RWDC01
+
+
+
+#worked
+#installed "Web-ServerIIS
+#need to import the module and then install the windows feature
+
+Import-Module servermanager
+Install-WindowsFeature Web-Server,Web-Common-Http, Web-Mgmt-Console -Restart
+
+
+#turn firewalls off/worked
+netsh advfirewall set allprofiles state off
+
+#turn firewalls on/worked
+netsh advfirewall set allprofiles state on
+
+#firewalls off
+Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled False
+
+#firewalls on
+Set-NetFirewallProfile -Profile Domain, public, Private -Enabled False
+
+
+

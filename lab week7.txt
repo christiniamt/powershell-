@@ -1,0 +1,3 @@
+Add-VpnConnection -Name VPN -ServerAddress 192.168.2.1
+RasDial VPN
+pause
